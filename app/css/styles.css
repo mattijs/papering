@@ -28,6 +28,16 @@ ul, li {
     position: absolute;
 }
 
+#grid .more {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    color: #cccccc;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
 #grid .preview-holder {
     background-color: #dddddd;
 }

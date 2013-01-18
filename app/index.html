@@ -4,7 +4,6 @@
         <title>Paper Grid</title>
 
         <link rel="stylesheet" media="screen" href="css/normalize.css" />
-        <link rel="stylesheet" media="screen" href="css/jquery.gridster.css" />
         <link rel="stylesheet" media="screen" href="css/styles.css" />
     </head>
     <html>
@@ -18,7 +17,7 @@
         <div id="grid"></div>
 
         <script id="tile-tmpl" type="text/x-handlebars-template">
-            <div class="tile">
+            <div class="tile" id="tile-{{ wid }}">
                 <div class="front-cover" style="background-image: url('{{ url }}');">
                 </div>
                 <div class="back-cover">
@@ -34,7 +33,7 @@
         <script type="text/javascript" src="components/underscore/underscore-min.js"></script>
         <script type="text/javascript" src="components/backbone/backbone-min.js"></script>
         <script type="text/javascript" src="components/handlebars/handlebars-1.0.0-rc.1.js"></script>
-        <script type="text/javascript" src="js/lib/jquery.gridster.js"></script>
+        <script type="text/javascript" src="components/isotope/jquery.isotope.js"></script>
 
         <!-- Application files -->
         <script type="text/javascript" src="js/wallpaper.js"></script>

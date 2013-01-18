@@ -29,24 +29,7 @@
             });
 
             // Add the rendered tile to the Grid
-            this.grid.add_widget(tile.render());
-            return;
-
-
-            var item = $('<li></li>')
-                .data('wid', wallpaper.id);
-
-            // Build the image
-            var img = $('<img />')
-                .attr('title', wallpaper.get('title'))
-                .attr('src', wallpaper.get('url'))
-                .attr('width', '140px');
-
-            // Add the image
-            item.append(img);
-
-            // Add the widget
-            this.grid.add_widget(item);
+            this.container.prepend(tile.render()).isotope('reloadItems').isotope({ sortBy: 'original-order'});
         },
 
         // Remove a Wallpaper model from the grid
@@ -70,16 +53,23 @@
         // Render the Grid.
         render: function() {
             // Check if the grid already in place
-            if (!this.grid) {
-                // Create the Grid container
-                this.$el.append($('<ul></ul>'));
+            if (!this.container) {
+                this.container = $('<ul></ul>');
+
+                this.$el.append(this.container);
 
                 // Initialize Gridster
-                this.grid = this.$el.find('ul').gridster({
-                    widget_base_dimensions: [400, 250],
-                    max_size_x: 2,
-                    max_size_y: 2
-                }).data('gridster').disable();
+                this.grid = this.container.isotope({
+                    itemSelector: 'li',
+                    layoutMode: 'fitRows'
+                });
+
+                // Create a `more` bar
+                var more = $('<div></div>')
+                    .attr('class', 'more')
+                    .html('load more');
+
+               this.$el.append(more);
             }
 
             // Return the element
@@ -106,7 +96,8 @@
 
             var template = tileTemplate({
                 title: this.model.get('title'),
-                url:   this.model.get('url')
+                url:   this.model.get('url'),
+                wid:   this.model.id
             });
             el.append(template)
             return el;
