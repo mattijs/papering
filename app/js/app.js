@@ -10,16 +10,14 @@ var App = window.App = (function() {
 
     // Grid view
     var grid = app.grid = new GridView({
-        el: '#grid'
+        el: '#grid',
+        wallpapers: wallpapers
     });
+    grid.render();
 
+    // Fetch the initial set of wallpapers
     wallpapers.fetch({ update: true });
 
-    wallpapers.on('add', function(model) {
-        grid.add(model);
-    });
-
-    grid.render();
 
     // Return the application
     return app;

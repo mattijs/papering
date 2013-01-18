@@ -4,6 +4,7 @@
         <title>Paper Grid</title>
 
         <link rel="stylesheet" media="screen" href="css/normalize.css" />
+        <link rel="stylesheet" media="screen" href="css/jquery.gridster.css" />
         <link rel="stylesheet" media="screen" href="css/styles.css" />
     </head>
     <html>
@@ -15,6 +16,16 @@
 
         <!-- grid container -->
         <div id="grid"></div>
+
+        <script id="tile-tmpl" type="text/x-handlebars-template">
+            <div class="tile">
+                <div class="front-cover" style="background-image: url('{{ url }}');">
+                </div>
+                <div class="back-cover">
+                    <span>{{ title }}</span>
+                </div>
+            </div>
+        </script>
 
         <!-- Dependencies -->
         <script type="text/javascript" src="js/lib/debug.js"></script>

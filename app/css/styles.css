@@ -1,26 +1,59 @@
-/* ---------------------------------------------------------
-   HTML5 Bones
-   This stylesheet contains print styling and a section for 
-   you to simply add your own. This is a basic template 
-   after all.
-   ---------------------------------------------------------*/
-   body {
-   
-   }
-   
-   
-   
-   
-/* ---------------------------------------------------------
+/* -------------------------------------------------------
+HTML5 Bones
+This stylesheet contains print styling and a section for
+you to simply add your own. This is a basic template
+after all.
+---------------------------------------------------------*/
+body {
+
+}
+
+
+
+
+/* -------------------------------------------------------
    Author's styles
-   ---------------------------------------------------------*/
-   body {
-   
-   }
-   
-   
-   
-   
+---------------------------------------------------------*/
+body {
+    background-color: rgb(17, 17, 17);
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+#grid ul li {
+    position: absolute;
+}
+
+#grid .preview-holder {
+    background-color: #dddddd;
+}
+
+#grid .tile {
+    width: 400px;
+    height: 250px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+#grid .tile .front-cover {
+    width: 400px;
+    height: 250px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#grid .tile .back-cover {
+    display: none;
+}
+
 /* ---------------------------------------------------------
    Print styles
    ---------------------------------------------------------*/
@@ -45,18 +78,18 @@
 		color:#06c;
 		border:none;
 	}
-	/* Don't show link destinations for JavaScript or internal links */ 
+	/* Don't show link destinations for JavaScript or internal links */
 	a[href^="javascript:"]:after, a[href^="#"]:after {
         content:"";
     }
-	
+
 	/* Show abbr title value in brackets after the text */
 	abbr[title]:after {
         content: " (" attr(title) ")";
     }
 
-	figure { 
-		margin-bottom:1em; 
+	figure {
+		margin-bottom:1em;
 		overflow:hidden;
 	}
 
