@@ -24,11 +24,10 @@ ul, li {
     list-style: none;
 }
 
-#grid ul li {
-    position: absolute;
+.grid-container ul li {
 }
 
-#grid .more {
+.grid-container .more {
     display: block;
     margin: 10px;
     padding: 10px;
@@ -38,20 +37,21 @@ ul, li {
     cursor: pointer;
 }
 
-#grid .preview-holder {
+.grid-container .preview-holder {
     background-color: #dddddd;
 }
 
-#grid .tile {
+.grid-container .tile {
     width: 400px;
     height: 250px;
+    margin: 10px;
     border: 1px solid #ccc;
     cursor: pointer;
     -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-#grid .tile .front-cover {
+.grid-container .tile .front-cover {
     width: 400px;
     height: 250px;
 
@@ -60,7 +60,7 @@ ul, li {
     background-position: center;
 }
 
-#grid .tile .back-cover {
+.grid-container .tile .back-cover {
     display: none;
 }
 

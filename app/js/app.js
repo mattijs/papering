@@ -10,7 +10,7 @@ var App = window.App = (function() {
 
     // Grid view
     var grid = app.grid = new GridView({
-        el: '#grid',
+        el: '.grid-container',
         wallpapers: wallpapers
     });
     grid.render();

@@ -4,6 +4,9 @@
     // Grid view
     var GridView = exports.GridView = Backbone.View.extend({
         tagName: 'ul',
+        events: {
+            'click .more': 'page'
+        },
         initialize: function(options) {
             // The wallpapers collection to create a grid of
             this.wallpapers = options.wallpapers;
@@ -21,15 +24,36 @@
             this.wallpapers.on('reset', this.reset, this);
         },
 
+        // Load the next page
+        page: function() {
+            console.log('paging');
+        },
+
         // Add a Wallpaper model to the Grid
         add: function(wallpaper) {
-            // Create a new Tile for the Wallpaper
-            var tile = new TileView({
-                wallpaper: wallpaper
-            });
+            if (!wallpaper || !wallpaper.id) return;
 
-            // Add the rendered tile to the Grid
-            this.container.prepend(tile.render()).isotope('reloadItems').isotope({ sortBy: 'original-order'});
+            // Check if this tile is new
+            if (!this.tiles[wallpaper.id]) {
+                // Create a new Tile for the Wallpaper
+                var tile = this.tiles[wallpaper.id] = new TileView({
+                    wallpaper: wallpaper
+                });
+
+                // Prepend the rendered tile to the grid
+                this.grid.prepend(tile.render())
+                    .isotope('reloadItems')
+                    .isotope({ sortBy: 'original-order'});
+            }
+            else {
+                // Update the existing tile
+                this.update(wallpaper);
+            }
+        },
+
+        // Update a tile in the Grid
+        update: function(wallpaper) {
+            // Find the corresponding Tile for the Wallpaper
         },
 
         // Remove a Wallpaper model from the grid
@@ -40,11 +64,6 @@
 
         },
 
-        // Update a tile in the Grid
-        update: function(wallpaper) {
-            // Find the corresponding Tile for the Wallpaper
-        },
-
         // Reset the grid view. This removes all Tiles and rerenders the wallpaper collection again.
         reset: function() {
             // Remove all Tiles gracefully
@@ -53,23 +72,14 @@
         // Render the Grid.
         render: function() {
             // Check if the grid already in place
-            if (!this.container) {
-                this.container = $('<ul></ul>');
+            if (!this.grid) {
+                this.grid = this.$el.find('ul');
 
-                this.$el.append(this.container);
-
-                // Initialize Gridster
-                this.grid = this.container.isotope({
+                // Initialize isotope
+                this.grid.isotope({
                     itemSelector: 'li',
                     layoutMode: 'fitRows'
                 });
-
-                // Create a `more` bar
-                var more = $('<div></div>')
-                    .attr('class', 'more')
-                    .html('load more');
-
-               this.$el.append(more);
             }
 
             // Return the element
