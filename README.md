@@ -1,4 +1,4 @@
-# Papertrail
+# Papering
 
 This is a small experiment with wallpapers and the Reddit API. It's not finished and probably will
 never be. I'm not devoting much time to this project, it's just a side project to play and
