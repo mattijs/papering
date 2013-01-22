@@ -1,0 +1,108 @@
+/* -------------------------------------------------------
+HTML5 Bones
+This stylesheet contains print styling and a section for
+you to simply add your own. This is a basic template
+after all.
+---------------------------------------------------------*/
+body {
+
+}
+
+
+
+
+/* -------------------------------------------------------
+   Author's styles
+---------------------------------------------------------*/
+body {
+    background-color: rgb(17, 17, 17);
+}
+
+ul, li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.grid-container ul li {
+}
+
+.grid-container .more {
+    display: block;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    color: #cccccc;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+}
+
+.grid-container .preview-holder {
+    background-color: #dddddd;
+}
+
+.grid-container .tile {
+    width: 400px;
+    height: 250px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.grid-container .tile .front-cover {
+    width: 400px;
+    height: 250px;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.grid-container .tile .back-cover {
+    display: none;
+}
+
+/* ---------------------------------------------------------
+   Print styles
+   ---------------------------------------------------------*/
+@media print {
+    * {
+        color:#000 !important;
+        box-shadow:none !important;
+        text-shadow:none !important;
+		background:transparent !important;
+    }
+	html {
+		background-color:#fff;
+	}
+	/* Hide navigation */
+	nav { display:none; }
+
+	/* Show link destinations in brackets after the link text */
+	a[href]:after { content: " (" attr(href) ") "; }
+	a[href] {
+		font-weight:bold;
+		text-decoration:underline;
+		color:#06c;
+		border:none;
+	}
+	/* Don't show link destinations for JavaScript or internal links */
+	a[href^="javascript:"]:after, a[href^="#"]:after {
+        content:"";
+    }
+
+	/* Show abbr title value in brackets after the text */
+	abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+	figure {
+		margin-bottom:1em;
+		overflow:hidden;
+	}
+
+	figure img { border:1px solid #000; }
+
+}
